@@ -1,0 +1,76 @@
+* {
+  font-smoothing: antialiased;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.wrapper {
+  margin-top: 10vh;
+  height: 100vh;
+  width: auto;
+  background-color: #ddd;
+  color: #141414;
+}
+.wrapper .header-overlay {
+  width: 100vw;
+  height: 11.7vh;
+  position: fixed;
+  top: 0vh;
+  left: 0vw;
+  background-color: #141414;
+  opacity: 0.7;
+  z-index: 999;
+}
+.wrapper .header-overlay h1 {
+  position: relative;
+  top: -2vh;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 6vh;
+  text-align: center;
+  color: #f0f0f0;
+  vertical-align: center;
+}
+.wrapper .front-image {
+  width: 100vw;
+}
+.wrapper .front-image .front-image-overlay-title {
+  width: 40vw;
+  position: relative;
+  top: -90vh;
+  left: 30vw;
+  height: auto;
+  vertical-align: middle;
+  background: linear-gradient(rgba(230, 100, 100, 0.85), rgba(145, 150, 230, 0.85));
+}
+.wrapper .front-image .front-image-overlay-title h2 {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 10vh;
+  text-align: center;
+  color: #f0f0f0;
+  vertical-align: center;
+}
+.wrapper .front-image .front-image-overlay-stuff {
+  width: 40vw;
+  position: relative;
+  top: -85vh;
+  left: 30vw;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 4.9vh;
+  color: #f4f4f4;
+}
+.wrapper .front-image .front-image-overlay-stuff ul {
+  list-style-type: none;
+}
+.wrapper .front-image .front-image-overlay-stuff ul li {
+  margin-bottom: 3vh;
+}
+.wrapper .front-image img {
+  position: relative;
+  min-height: 120vh;
+  max-height: 120vh;
+  width: 100%;
+  height: auto;
+  top: -10vh;
+  object-fit: cover;
+  overflow: hidden;
+}
