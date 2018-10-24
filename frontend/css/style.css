@@ -13,7 +13,7 @@
 }
 .wrapper .header-overlay {
   width: 100vw;
-  height: 11.7vh;
+  height: 10vh;
   position: fixed;
   top: 0vh;
   left: 0vw;
@@ -25,7 +25,7 @@
   position: relative;
   top: -2vh;
   font-family: "Noto Sans", sans-serif;
-  font-size: 6vh;
+  font-size: 5vh;
   text-align: center;
   color: #f0f0f0;
   vertical-align: center;
@@ -44,18 +44,18 @@
 }
 .wrapper .front-image .front-image-overlay-title h2 {
   font-family: "Ubuntu", sans-serif;
-  font-size: 10vh;
+  font-size: 7.5vh;
   text-align: center;
   color: #f0f0f0;
   vertical-align: center;
 }
 .wrapper .front-image .front-image-overlay-stuff {
-  width: 40vw;
+  width: 45vw;
   position: relative;
   top: -85vh;
-  left: 30vw;
+  left: 27.5vw;
   font-family: "Ubuntu", sans-serif;
-  font-size: 4.9vh;
+  font-size: 3vh;
   color: #f4f4f4;
 }
 .wrapper .front-image .front-image-overlay-stuff ul {
