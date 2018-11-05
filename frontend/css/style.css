@@ -5,9 +5,32 @@
   padding: 0 0 0 0;
 }
 
+body {
+  background-color: #ddd;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+::-moz-scrollbar {
+  display: none;
+}
+
+:root {
+  --ebay-red: #e53238;
+  --ebay-blue: #0064d2;
+  --ebay-yellow: #f5af02;
+  --ebay-green: #86b817;
+}
+
+xr {color: var(--ebay-red);}
+xb {color: var(--ebay-blue);}
+xy {color: var(--ebay-yellow);}
+xg {color: var(--ebay-green);}
+
 .wrapper {
   margin-top: 10vh;
-  height: 100vh;
+  height: 110vh;
   width: auto;
   background-color: #ddd;
   color: #141414;
@@ -37,7 +60,7 @@
 .wrapper .front-image .front-image-overlay-title {
   width: 40vw;
   position: relative;
-  top: -90vh;
+  top: -100vh;
   left: 30vw;
   height: auto;
   vertical-align: middle;
@@ -53,7 +76,7 @@
 .wrapper .front-image .front-image-overlay-stuff {
   width: 45vw;
   position: relative;
-  top: -85vh;
+  top: -95vh;
   left: 27.5vw;
   font-family: "Ubuntu", sans-serif;
   font-size: 3vh;
@@ -65,6 +88,10 @@
 .wrapper .front-image .front-image-overlay-stuff ul li {
   margin-bottom: 3vh;
 }
+.wrapper .front-image .front-image-overlay-stuff ul li small {
+  text-align: center;
+  font-size: 1.5vh;
+}
 .wrapper .front-image img {
   position: relative;
   min-height: 120vh;
@@ -75,3 +102,102 @@
   object-fit: cover;
   overflow: hidden;
 }
+
+.arrow {
+	position: absolute;
+  left: 49%;
+  bottom: -10vh;
+	display: block;
+	text-align: center;
+	font-size: 3vmin;
+	width: 3vmin;
+	height: 3vmin;
+	border-bottom: 0.2vmax solid #fff;
+	border-right: 0.2vmax solid #fff;
+	-webkit-transform: translate(-50%, 0%) rotate(45deg);
+	-moz-transform: translate(-50%, 0%) rotate(45deg);
+	transform: translate(-50%, 0%) rotate(45deg);
+	-webkit-animation: fade_move_down 2s ease-in-out infinite;
+	-moz-animation: fade_move_down 2s ease-in-out infinite;
+	animation: fade_move_down 2s ease-in-out infinite;
+}
+@-webkit-keyframes fade_move_down {0% {-webkit-transform:translate(0, -10px) rotate(45deg);opacity: 0;}50% {opacity: 1;}100% {-webkit-transform:translate(0, 10px) rotate(45deg);opacity: 0;}}
+@-moz-keyframes fade_move_down {0% {-moz-transform:translate(0, -10px) rotate(45deg);opacity: 0;}50% {opacity: 1;}100% {-moz-transform:translate(0, 10px) rotate(45deg);opacity: 0;}}
+@keyframes fade_move_down {0% {transform:translate(0, -10px) rotate(45deg);opacity: 0;}50% {opacity: 1;}100% {transform:translate(0, 10px) rotate(45deg);opacity: 0;}}
+
+.wrapper-2 {
+  height: 53.5vh;
+  width: auto;
+  background: linear-gradient(135deg, #fec180 0%, #ff8993 100%); 
+  color: #141414;
+}
+
+.lower-info {
+  width: 40vw;
+  position: relative;
+  left: 31vw;
+  height: 50%;
+  top: 25%;
+  vertical-align: middle;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 7vmin;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.login-sub {
+  width: 100%;
+  margin: 22px;
+  float: none;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #2ecc71;
+}
+
+.login-button {
+  position: relative;
+  border-radius: 4px;
+  font-family: "Noto Sans", sans-serif;
+  background-color: var(--ebay-blue);
+  border: none;
+  padding: 10px;
+  width: 30vmax;
+  font-size: 3vh;
+  transition: all 0.5s;
+  color: #fff;
+  text-align: center;
+}
+
+.login-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.login-button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -40px;
+  transition: 0.5s;
+}
+
+.login-button:hover span {
+  padding-right: 25px;
+  color: #2ecc71;
+}
+
+.login-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
