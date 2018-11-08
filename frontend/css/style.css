@@ -35,6 +35,7 @@ xg {color: var(--ebay-green);}
   background-color: #ddd;
   color: #141414;
 }
+
 .wrapper .header-overlay {
   width: 100vw;
   height: 10vh;
@@ -54,6 +55,7 @@ xg {color: var(--ebay-green);}
   color: #f0f0f0;
   vertical-align: center;
 }
+
 .wrapper .front-image {
   width: 100vw;
 }
@@ -201,3 +203,69 @@ a:hover {
   right: 0;
 }
 
+
+.authacc-wrapper {
+  margin-top: 10vh;
+  height: 110vh;
+  width: auto;
+  background-color: #282b30;
+  color: #141414;
+}
+
+.authacc-wrapper .authacc-header-overlay {
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  top: 0vh;
+  left: 0vw;
+  background-color: #141414;
+  opacity: 0.7;
+  z-index: 999;
+}
+.authacc-wrapper .authacc-header-overlay h1 {
+  position: relative;
+  top: -2vh;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 5vh;
+  text-align: center;
+  color: #f0f0f0;
+  vertical-align: center;
+}
+
+.authacc-wrapper-2 {
+  height: 53.5vh;
+  width: auto;
+  background: linear-gradient(135deg, #fec180 0%, #ff8993 100%); 
+  color: #141414;
+}
+
+.authacc-auth-test {
+  width: 80vmin;
+  height: 80vmin;
+  top: 10vmin;
+  position: relative;
+  left: calc(50% - 40vmin);
+}
+
+.authacc-auth-test img {
+  position: relative;
+  width: 40vmin;
+  height: auto;
+  left: calc(50% - 20vmin);
+}
+.authacc-auth-test h2 {
+  position: relative;
+  text-align: center;
+  color: #ccc;
+}
+
+.authacc-auth-test x {
+  color: #fff;
+}
+
+.authacc-auth-test h4 {
+  position: relative;
+  text-align: center;
+  color: #ccc;
+  font-size: 2vmin;
+}

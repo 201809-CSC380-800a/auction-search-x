@@ -1,5 +1,3 @@
-const runame = "Anthony_Levine-AnthonyL-Auctio-plpgzby"
-
 function getSessionID() {
     let xmls = '<?xml version="1.0" encoding="utf-8"?>\
                 <GetSessionIDRequest xmlns="urn:ebay:apis:eBLBaseComponents">\
@@ -24,6 +22,7 @@ function getSessionID() {
 function redirectToLogin() {
     getSessionID().then(response => {
         const regex = /(?<=<SessionID>)(.*)(?=<\/SessionID>)/gm
+        setCookie("SessionID", regex.exec(response.data)[0], 1)
         window.location.href = `https://signin.sandbox.ebay.com/ws/eBayISAPI.dll?SignIn&RuName=Anthony_Levine-AnthonyL-Auctio-plpgzby&SessID=${regex.exec(response.data)[0]}`
     })
 }
