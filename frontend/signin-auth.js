@@ -6,7 +6,7 @@ function getSessionID() {
                 <RuName>Anthony_Levine-AnthonyL-Auctio-plpgzby</RuName>\
                 </GetSessionIDRequest>'
 
-    return axios.post("https://api.sandbox.ebay.com/ws/api.dll",
+    return axios.post("https://sayori.xyz/api",
         xmls,
         {headers: {
             "X-EBAY-API-APP-NAME": "AnthonyL-Auctionx-SBX-a7f4c67ed-79b83e10",
