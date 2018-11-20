@@ -56,3 +56,4 @@ fetchToken().then(response => {
 })
 document.querySelector("#auth-sessionid").innerHTML = getCookie("SessionID")
 })
+

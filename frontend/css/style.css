@@ -1,6 +1,5 @@
 * {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
 }
@@ -10,9 +9,6 @@ body {
 }
 
 ::-webkit-scrollbar {
-  display: none;
-}
-::-moz-scrollbar {
   display: none;
 }
 
@@ -36,7 +32,7 @@ xg {color: var(--ebay-green);}
   color: #141414;
 }
 
-.wrapper .header-overlay {
+.header-overlay {
   width: 100vw;
   height: 10vh;
   position: fixed;
@@ -46,7 +42,7 @@ xg {color: var(--ebay-green);}
   opacity: 0.7;
   z-index: 999;
 }
-.wrapper .header-overlay h1 {
+.header-overlay h1 {
   position: relative;
   top: -2vh;
   font-family: "Noto Sans", sans-serif;
@@ -56,10 +52,10 @@ xg {color: var(--ebay-green);}
   vertical-align: center;
 }
 
-.wrapper .front-image {
+.front-image {
   width: 100vw;
 }
-.wrapper .front-image .front-image-overlay-title {
+.front-image-overlay-title {
   width: 40vw;
   position: relative;
   top: -100vh;
@@ -68,14 +64,14 @@ xg {color: var(--ebay-green);}
   vertical-align: middle;
   background: linear-gradient(rgba(230, 100, 100, 0.85), rgba(145, 150, 230, 0.85));
 }
-.wrapper .front-image .front-image-overlay-title h2 {
+.front-image-overlay-title h2 {
   font-family: "Ubuntu", sans-serif;
   font-size: 7.5vh;
   text-align: center;
   color: #f0f0f0;
   vertical-align: center;
 }
-.wrapper .front-image .front-image-overlay-stuff {
+.front-image-overlay-stuff {
   width: 45vw;
   position: relative;
   top: -95vh;
@@ -84,17 +80,17 @@ xg {color: var(--ebay-green);}
   font-size: 3vh;
   color: #f4f4f4;
 }
-.wrapper .front-image .front-image-overlay-stuff ul {
+.front-image-overlay-stuff ul {
   list-style-type: none;
 }
-.wrapper .front-image .front-image-overlay-stuff ul li {
+.front-image-overlay-stuff li {
   margin-bottom: 3vh;
 }
-.wrapper .front-image .front-image-overlay-stuff ul li small {
+.front-image-overlay-stuff small {
   text-align: center;
   font-size: 1.5vh;
 }
-.wrapper .front-image img {
+.front-image img {
   position: relative;
   min-height: 120vh;
   max-height: 120vh;
@@ -116,16 +112,23 @@ xg {color: var(--ebay-green);}
 	height: 3vmin;
 	border-bottom: 0.2vmax solid #fff;
 	border-right: 0.2vmax solid #fff;
-	-webkit-transform: translate(-50%, 0%) rotate(45deg);
-	-moz-transform: translate(-50%, 0%) rotate(45deg);
 	transform: translate(-50%, 0%) rotate(45deg);
-	-webkit-animation: fade_move_down 2s ease-in-out infinite;
-	-moz-animation: fade_move_down 2s ease-in-out infinite;
 	animation: fade_move_down 2s ease-in-out infinite;
 }
-@-webkit-keyframes fade_move_down {0% {-webkit-transform:translate(0, -10px) rotate(45deg);opacity: 0;}50% {opacity: 1;}100% {-webkit-transform:translate(0, 10px) rotate(45deg);opacity: 0;}}
-@-moz-keyframes fade_move_down {0% {-moz-transform:translate(0, -10px) rotate(45deg);opacity: 0;}50% {opacity: 1;}100% {-moz-transform:translate(0, 10px) rotate(45deg);opacity: 0;}}
-@keyframes fade_move_down {0% {transform:translate(0, -10px) rotate(45deg);opacity: 0;}50% {opacity: 1;}100% {transform:translate(0, 10px) rotate(45deg);opacity: 0;}}
+
+@keyframes fade_move_down {
+  0% {
+    transform:translate(0, -10px) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform:translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}
 
 .wrapper-2 {
   height: 53.5vh;
@@ -233,10 +236,155 @@ a:hover {
 }
 
 .authacc-wrapper-2 {
-  height: 53.5vh;
-  width: auto;
-  background: linear-gradient(135deg, #fec180 0%, #ff8993 100%); 
+  height: auto;
+  min-height: 50vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #eee 0%, #bbb 100%); 
   color: #141414;
+}
+
+.noto {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.search-wrap {
+  position: relative;
+  width: 70vw;
+  height: 10vh;
+  margin: 0 auto;
+}
+
+.search-label {
+  font-family: "Noto Sans", sans-serif;
+  position: absolute;
+  left: 1vw;
+  top: 0.3vh;
+  font-size: 5vh;
+  color: #a0a0a0;
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.focus {
+  font-family: "Noto Sans", sans-serif;
+  top: -2vh;
+  left: 0vw;
+  font-size: 2vh;
+  color: #555;
+  pointer-events: none;
+}
+
+.search-box {
+  position: relative;
+  display: block;
+  width: 70vw;
+  margin-top: 8vh;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 4vh;
+  color: #141414;
+  outline: none;
+}
+
+.search-num {
+  position: relative;
+  display: block;
+  width: 10vw;
+  left: 60vw;
+  border: none;
+  border-radius: 5px;
+  font-size: 2vh;
+  color: #141414;
+}
+
+.auc-flex-main {
+  position: relative;
+  height: auto;
+  min-height: 15vh;
+  width: 80%;
+  left: 10%;
+  margin-top: 3%;
+  background: #aaa;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.auc-auctionview {
+  position: relative;
+  height: auto;
+  min-height: 15vh;
+  width: 95%;
+  left: 2.5%;
+  background: #eee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.auc-img {
+  position: relative;
+  height: 100%;
+  width: auto;
+}
+
+.auc-img img {
+  position: relative;
+  min-width: 100%;
+  min-height: 15vh;
+  object-fit: cover;
+}
+
+.auc-title-holder {
+  flex-grow: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.auc-title {
+  font-size: 5vh;
+  text-align: center;
+}
+
+.auc-title2 {
+  font-size: 2vh;
+  text-align: center;
+}
+
+.auc-sell-holder {
+  flex-grow: 10;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.auc-sell-type {
+  font-size: 2vh;
+}
+
+.auc-seller {
+  font-size: 3vh;
+}
+
+.auc-price-holder {
+  flex-grow: 10;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.auc-price {
+  font-size: 4vh;
+}
+
+.auc-shipping {
+  font-size: 2vh
 }
 
 .authacc-auth-test {
