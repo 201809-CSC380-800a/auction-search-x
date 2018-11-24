@@ -1,4 +1,17 @@
 function eBayRequest(callName, options = {}, axiosOptions = {}) {
+    /**
+     * Send a request to the eBay API.
+     *
+     * @param {string}  callName  The name of the API call: in the API reference, this is X-EBAY-API-CALL-NAME.
+     * @param {Object}  [options]                      Options that change what information should be sent in the call.
+     * @param {boolean} [options.sendSessionID=true]   Include <SessionID> field in the call's XML payload. Fetched from cookies. Usually required.
+     * @param {boolean} [options.sendCredentials=true] Include <RequesterCredentials><eBayAuthToken> field inthe call's XML payload. Fetched from cookies. Often required.
+     * @param {string}  [options.extraXML]             Other fields to include at the end of the XML payload. Be careful to format these correctly yourself.
+     * @param {string}  [options.extraHeaders]         Other fields to include in the header of the call. In the API reference, these begin with X-EBAY-API-.
+     * @param {Object}  [axiosOptions] Any additional options you wish to pass to the axios call config. Check the axios reference.
+     * 
+     * @returns {Promise} The response from the server.
+     */
     let def = {
         sendSessionID: true,
         sendCredentials: true,
