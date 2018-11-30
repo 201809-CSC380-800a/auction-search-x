@@ -7,6 +7,7 @@ function confirmIdentity() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+document.querySelector('#auth-fullname').innerHTML = getCookie('user-firstname') + ' ' + getCookie('user-lastname')
 fetchToken().then(response => {
     const regex = /(?<=<eBayAuthToken>)(.*)(?=<\/eBayAuthToken>)/gm
     setCookie("eBayAuthToken", regex.exec(response.data)[0], 1)

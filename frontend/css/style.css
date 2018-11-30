@@ -418,3 +418,122 @@ a:hover {
   font-size: 1.5vmin;
   overflow-wrap: break-word;
 }
+
+.log-wrapper {
+  margin-top: 10vh;
+  height: 110vh;
+  width: auto;
+  background-color: #282b30;
+  color: #141414;
+}
+
+.log-wrap {
+  position: relative;
+  width: 70vw;
+  height: 10vh;
+  margin: 0 auto;
+}
+
+.log-label {
+  font-family: "Noto Sans", sans-serif;
+  position: relative;
+  left: -26vw;
+  top: 0vh;
+  font-size: 3.5vh;
+  color: #a0a0a0;
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.log-focus {
+  font-family: "Noto Sans", sans-serif;
+  top: -7vh;
+  font-size: 2vh;
+  color: #ddd;
+  pointer-events: none;
+}
+
+.log-box {
+  position: relative;
+  display: inline-block;
+  width: 40vw;
+  left: 15vw;
+  margin-top: 8vh;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 4vh;
+  color: #141414;
+  outline: none;
+}
+
+.log-sub {
+  width: 100%;
+  margin: 22px;
+  float: none;
+  text-align: center;
+}
+
+.log-reg-button {
+  display: inline-block;
+  right: 1vw;
+}
+
+.log-log-button {
+  display: inline;
+}
+
+.log-button {
+  position: relative;
+  border-radius: 4px;
+  font-family: "Noto Sans", sans-serif;
+  background-color: var(--ebay-blue);
+  border: none;
+  padding: 10px;
+  width: 20vw;
+  font-size: 3vh;
+  transition: all 0.5s;
+  color: #fff;
+  text-align: center;
+}
+
+.log-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.log-button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -40px;
+  transition: 0.5s;
+}
+
+.log-button:hover span {
+  padding-right: 25px;
+  color: #2ecc71;
+}
+
+.log-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.log-status-wrap {
+  width: 100vw;
+}
+
+.log-status {
+  font-family: "Noto Sans", sans-serif;
+  position: relative;
+  text-align: center;
+  display: block;
+  top: 0vh;
+  font-size: 3.5vh;
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
