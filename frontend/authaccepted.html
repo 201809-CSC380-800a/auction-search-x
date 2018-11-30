@@ -1,6 +1,7 @@
+
+
 <!DOCTYPE html>
 <html lang="en" >
-
 <head>
   <meta charset="UTF-8">
   <title>searchX</title>
@@ -8,53 +9,34 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="postauth.js"></script>
   <script src="cookies.js"></script>
-  <script src="auction.js"></script>
   <script src="req.js"></script>
+  <script src="login.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="md5.min.js"></script>
 </head>
-
 <body>
-<div class="authacc-wrapper">
-  <div class="authacc-header-overlay">
+<div class="log-wrapper">
+  <div class="header-overlay">
     <h1><xr>se</xr><xb>ar</xb><xy>ch</xy><xg>X</xg></h1>
   </div>
-  <div class="authacc-auth-test">
-      <img src="img/auth_accepted.svg">
-      <h2>You have been successfully authorized, <x id="auth-name"></x>.</h2>
-      <h4>SessionID: <x id="auth-sessionid"></x></h4>
-      <h4>Token: <x id="auth-token"></x></h4>
-  </div>
-</div>
-<div class="authacc-wrapper-2">
-  <div class="search-wrap">
-    <input class="noto search-box" type="text"/>
-    <label class="noto search-label" for="query">Sandbox Search</label>
-    <input class="noto search-num" type="number" value="1" min="1" max="100"/>
-  </div>
-  <div class="auc-flex-main">
-    <div class="noto auc-auctionview" id="0">
-      <div class="noto auc-img">
-        <img src="https://secureir.ebaystatic.com/pictures/aw/pics/stockimage1.jpg">
-      </div>
-      <div class="noto auc-title-holder" id="th">
-        <div class="noto auc-title" id="t">Auction Title</div>
-        <div class="noto auc-title2" id="t2">Auction Title 2</div>
-      </div>
-      <div class="noto auc-sell-holder" id="sh">
-        <div class="noto auc-seller" id="s">Seller</div>
-        <div class="noto auc-sell-type" id="st">Selltype</div>
-      </div>
-      <div class="noto auc-price-holder" id="ph">
-        <div class="noto auc-price" id="p">$199.99</div>
-        <div class="noto auc-shipping" id="d">Shiping</div>
-      </div>
+  <div class="log-wrap">
+    <input class="noto log-name log-box log-fname" id="log-flabel" type="text"/>
+    <label class="noto log-name log-label log-flabel">First name</label>
+    <input class="noto log-name log-box log-lname" id="log-llabel" type="text"/>
+    <label class="noto log-name log-label log-llabel">Last name</label>
+    <input class="noto log-box log-uname" id="log-ulabel" type="text"/>
+    <label class="noto log-label log-ulabel">Username</label>
+    <input class="noto log-box log-passw" id="log-plabel" type="password"/>
+    <label class="noto log-label log-plabel">Password</label>
+    <div class="log-sub">
+      <button class="log-reg-button log-button" onclick="register()"><span>Register searchX Account</span></button>
+      <button class="log-log-button log-button" onclick="login()"><span>Login to searchX</span></button>
+      <br><br>
+      <xr class="log-status">Placeholder text</xr>
     </div>
+    
   </div>
 </div>
-  
-  
-
 </body>
 </html>
