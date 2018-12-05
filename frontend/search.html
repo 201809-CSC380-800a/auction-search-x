@@ -12,7 +12,9 @@
   <script src="cookies.js"></script>
   <script src="auction.js"></script>
   <script src="req.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="xml2json.js"></script>
 </head>
 
 <body>
@@ -23,9 +25,8 @@
   <div class="authacc-auth-test">
       <img src="img/auth_accepted.svg">
       <h2>Thanks <x id='auth-fullname'></x>,</h2>
-      <h2>You have been successfully authorized as <x id="auth-name"></x>.</h2>
-      <h4>SessionID: <x id="auth-sessionid"></x></h4>
-      <h4>Token: <x id="auth-token"></x></h4>
+      <h2>You have been successfully logged in.</h2>
+      <button class="profile-link" onclick="window.location.href = 'profile.php'"><span>Manage your profile</span></button>
   </div>
 </div>
 <div class="authacc-wrapper-2">
@@ -33,24 +34,28 @@
     <input class="noto search-box" type="text"/>
     <label class="noto search-label" for="query">Sandbox Search</label>
     <label class="noto search-num-desc">Results</label>
-    <input class="noto search-num" type="number" value="1" min="1" max="100"/>
+    <input class="noto search-num" type="number" value="1" min="1" max="1"/>
   </div>
   <div class="auc-flex-main">
-    <div class="noto auc-auctionview" id="0">
+    <div class="tofadeout noto auc-auctionview" id="0">
       <div class="noto auc-img">
         <img src="https://secureir.ebaystatic.com/pictures/aw/pics/stockimage1.jpg">
       </div>
       <div class="noto auc-title-holder" id="th">
-        <div class="noto auc-title" id="t">Auction Title</div>
-        <div class="noto auc-title2" id="t2">Auction Title 2</div>
+        <div class="noto auc-title" id="t"></div>
+        <div class="noto auc-title2" id="t2"></div>
       </div>
       <div class="noto auc-sell-holder" id="sh">
-        <div class="noto auc-seller" id="s">Seller</div>
-        <div class="noto auc-sell-type" id="st">Selltype</div>
+        <div class="noto auc-seller" id="s"></div>
+        <div class="noto auc-sell-type" id="st"></div>
       </div>
       <div class="noto auc-price-holder" id="ph">
-        <div class="noto auc-price" id="p">$199.99</div>
-        <div class="noto auc-shipping" id="d">Shiping</div>
+        <div class="noto auc-price" id="p"></div>
+        <div class="noto auc-shipping" id="d"></div>
+      </div>
+      <div class="noto auc-button-holder" id="b">
+        <button class="noto auc-button-watch auc-button" title="Add to watch list" id="bw"><span>➕</span></button>
+        <button class="noto auc-button-ignore auc-button" title="Add to ignore list" id="bi"><span>🚫</span></button>
       </div>
     </div>
   </div>

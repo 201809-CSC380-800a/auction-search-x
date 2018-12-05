@@ -12,6 +12,7 @@
   <script src="req.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="profile.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="xml2json.js"></script>
 </head>
 
@@ -22,13 +23,13 @@
   </div>
   <div class="profile-master-holder">
     <div class="profile-inside-header">
-      <img src="https://ir.ebaystatic.com/pictures/aw/social/avatar.png"><y><x id='fullname'>John Doe</x></y><z><x id='ebayusername'>testerx1</x> ・ <x id='searchxusername'>searchx1</x></z>
+      <img src="https://ir.ebaystatic.com/pictures/aw/social/avatar.png"><y><x id='fullname'></x></y><z><x id='ebayusername'></x> ・ <x id='searchxusername'></x></z>
       <div class="profile-inside-header-quick-links">
         Quick links<br>
         <a href="index.html">Log out of searchX</a><br>
         <a href="index.html" id="ebayProfLink">Visit profile on eBay</a><br>
-        <a href="index.html">Clear ignore list</a><br>
-        <a href="index.html">Delete searchX account</a>
+        <a href="#" onclick="clearIgnoreList()">Clear ignore list</a><br>
+        <a href="#" onclick="deleteAccountLikeForReal()">Delete searchX account</a>
       </div>
     </div>
     <div class="profile-spacer"></div>
@@ -37,9 +38,9 @@
       <button class="profile-ignore-button profile-button" onclick="changeToIgnoreList()"><span>Ignore list</span></button>
     </div>
     <div class="auc-flex-main">
-      <div class="noto auc-auctionview" id="0">
-        <div class="noto auc-img">
-          <img src="https://secureir.ebaystatic.com/pictures/aw/pics/stockimage1.jpg">
+      <div class=" tofadeout noto auc-auctionview" id="0">
+        <div class="noto auc-img" id="im">
+          <img id="pk" src="https://secureir.ebaystatic.com/pictures/aw/pics/stockimage1.jpg">
         </div>
         <div class="noto auc-title-holder" id="th">
           <div class="noto auc-title" id="t">Loading Watch List...</div>
@@ -52,6 +53,10 @@
         <div class="noto auc-price-holder" id="ph">
           <div class="noto auc-price" id="p"></div>
           <div class="noto auc-shipping" id="d"></div>
+        </div>
+        <div class="noto auc-button-holder" id="b">
+          <button class="noto auc-button-watch auc-button" title="Add to watch list" id="bw"><span>➕</span></button>
+          <button class="noto auc-button-ignore auc-button" title="Add to ignore list" id="bi"><span>🚫</span></button>
         </div>
       </div>
     </div>

@@ -16,22 +16,38 @@ axios.post('https://sayori.xyz/api_j/identity/v1/oauth2/token?grant_type=client_
     })
 .then(r => setCookie('access_token', r.data.access_token, 1))
 .catch(e => {throw e})
-document.querySelector('#auth-fullname').innerHTML = getCookie('user-firstname') + ' ' + getCookie('user-lastname')
+$.ajax({
+    type: 'POST',
+    url: 'mysql.php',
+    dataType: 'json',
+    data: {sql: `SELECT * FROM customers_information WHERE username="${getCookie('user-username')}";`},
+    success: o => {
+        document.querySelector('#auth-fullname').innerHTML = o[0].first_name + ' ' + o[0].last_name
+        setCookie('user-customer_id', o[0].customer_id, 1)
+    }
+})
+
 fetchToken().then(response => {
     const regex = /(?<=<eBayAuthToken>)(.*)(?=<\/eBayAuthToken>)/gm
-    setCookie("eBayAuthToken", regex.exec(response.data)[0], 1)
-    document.querySelector("#auth-token").innerHTML = getCookie("eBayAuthToken")
+    setCookie("eBayAuthTokenFullReturn", JSON.stringify(response.data), 1)
+    let ex = regex.exec(response.data)
+    if (ex && ex.length > 0)
+        setCookie("eBayAuthToken", ex[0], 1)
+    // document.querySelector("#auth-token").innerHTML = getCookie("eBayAuthToken")
     confirmIdentity().then(response => {
         const regex = /(?<=<UserID>)(.*)(?=<\/UserID>)/gm
+        setCookie("ConfirmIdentityFullReturn", JSON.stringify(response.data), 1)
         setCookie("userID", regex.exec(response.data)[0], 1)
-        document.querySelector("#auth-name").innerHTML = getCookie("userID")
     })
     .catch(e => {throw e})
+    // .finally(() => document.querySelector("#auth-name").innerHTML = getCookie("userID"))
+
+    
 })
 .catch(e => {throw e})
 
 
 
-document.querySelector("#auth-sessionid").innerHTML = getCookie("SessionID")
+// document.querySelector("#auth-sessionid").innerHTML = getCookie("SessionID")
 })
 
