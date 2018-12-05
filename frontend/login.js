@@ -24,14 +24,25 @@ function login() {
         setCookie('return-error', 'Error: Username required to login')
     else if (pv == '')
         setCookie('return-error', 'Error: Password required to login')
-    else if (getCookie('user-username') == uv && getCookie('user-password') == md5(pv+uv+'searchX')) {
-        setCookie('return-error', '', 1)
-        window.location.href = 'https://sayori.xyz/test/auction-search-x/frontend/search.html'
-    }
     else {
-        setCookie('return-error', 'Error: Username or password incorrect', 1)
-        window.location.href = 'https://sayori.xyz/test/auction-search-x/frontend/authaccepted.html'
-    }
+        $.ajax({
+            type: 'POST',
+            url: 'mysql.php',
+            dataType: 'json',
+            data: {sql: `SELECT * FROM customers_information WHERE username="${uv}" AND password="${md5(pv+uv+'searchX')}";`},
+            success: o => {
+                if (o.length > 0) {
+                    setCookie('user-username', uv, 1)
+                    setCookie('return-error', '', 1)
+                    window.location.href = 'https://sayori.xyz/test/auction-search-x/frontend/search.html'
+                }
+                else {
+                    setCookie('return-error', 'Error: Username or password incorrect', 1)
+                    window.location.href = 'https://sayori.xyz/test/auction-search-x/frontend/authaccepted.php'
+                }
+            }
+            })
+    }    
 }
 
 function register() {
@@ -39,9 +50,7 @@ function register() {
     let lv = document.getElementById('log-llabel').value
     let uv = document.getElementById('log-ulabel').value
     let pv = document.getElementById('log-plabel').value
-    if (getCookie('user-username') != '' && getCookie('user-username') == uv)
-        setCookie('return-error', 'Error: User already exists')
-    else if (fv == '')
+    if (fv == '')
         setCookie('return-error', 'Error: First name required to register')
     else if (lv == '')
         setCookie('return-error', 'Error: Last name required to register')
@@ -50,11 +59,30 @@ function register() {
     else if (pv == '')
         setCookie('return-error', 'Error: Password required to register')
     else {
-        setCookie('user-username', uv, 1)
-        setCookie('user-password', md5(pv+uv+'searchX'), 1)
-        setCookie('user-firstname', fv, 1)
-        setCookie('user-lastname', lv, 1)
-        setCookie('return-error', '', 1)
+        $.ajax({
+            type: 'POST',
+            url: 'mysql.php',
+            dataType: 'json',
+            data: {sql: `SELECT * FROM customers_information WHERE username="${uv}";`},
+            success: o => {
+                if (o.length > 0) {
+                    setCookie('return-error', 'Error: User already exists')
+                    window.location.href = 'https://sayori.xyz/test/auction-search-x/frontend/authaccepted.php'
+                }
+                else {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'mysql.php',
+                        dataType: 'json',
+                        data: {sql: `INSERT INTO customers_information (first_name, last_name, username, password) VALUES ("${fv}", "${lv}", "${uv}", "${md5(pv+uv+'searchX')}")`},
+                        success: x => {
+                            setCookie('user-username', uv, 1)
+                            setCookie('return-error', '', 1)
+                        }
+                    })
+                }
+            }
+        })
     }
-    window.location.href = `https://sayori.xyz/test/auction-search-x/frontend/${getCookie('return-error') == '' ? 'search' : 'authaccepted'}.html`
+    window.location.href = `https://sayori.xyz/test/auction-search-x/frontend/${getCookie('return-error') == '' ? 'search.html' : 'authaccepted.php'}`
 }
