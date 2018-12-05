@@ -291,7 +291,7 @@ a:hover {
 }
 
 .search-num {
-  margin-top: 2vh;
+  margin-top: 0vh;
   position: relative;
   display: block;
   width: 5vw;
@@ -305,7 +305,7 @@ a:hover {
 .search-num-desc {
   position: relative;
   left: 60vw;
-  top: 2vh;
+  top: 0vh;
   font-size: 2vh;
 }
 

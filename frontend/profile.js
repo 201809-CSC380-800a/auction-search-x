@@ -2,33 +2,32 @@ var ignoredIds = []
 var watchedIds = []
 var current = 'w'
 document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('ebayProfLink').setAttribute('href', 'https://feedback.sandbox.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=' + getCookie('userID'))
 
-document.getElementById('ebayProfLink').setAttribute('href', 'https://feedback.sandbox.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=' + getCookie('userID'))
-
-changeToWatchList()
-$.ajax({
-    type: 'POST',
-    url: 'mysql.php',
-    dataType: 'json',
-    data: {sql: `SELECT * FROM customers_information WHERE username="${getCookie('user-username')}";`},
-    success: o => {
-        document.getElementById('fullname').innerHTML = o[0].first_name + ' ' + o[0].last_name
-        document.getElementById('ebayusername').innerHTML = getCookie('userID')
-        document.getElementById('searchxusername').innerHTML = getCookie('user-username')
-    }
-})
-eBayRequest('GetMyeBayBuying', {sendSessionID: false, extraXML: `
-    <UserDefinedLists>
-        <Include>true</Include>
-        <IncludeItemCount>true</IncludeItemCount>
-        <IncludeListContents>true</IncludeListContents>
-    </UserDefinedLists>`}).then(r => {
-        let data = xmlToJson(r.data)
-        watchedIds = data.GetMyeBayBuyingResponse.UserDefinedList.ItemArray.Item.map(e => e.ItemID['#text'])
-}).then(() => {
-    updateWatchList()
-    updateIgnoreList()
-})
+    changeToWatchList()
+    $.ajax({
+        type: 'POST',
+        url: 'mysql.php',
+        dataType: 'json',
+        data: {sql: `SELECT * FROM customers_information WHERE username="${getCookie('user-username')}";`},
+        success: o => {
+            document.getElementById('fullname').innerHTML = o[0].first_name + ' ' + o[0].last_name
+            document.getElementById('ebayusername').innerHTML = getCookie('userID')
+            document.getElementById('searchxusername').innerHTML = getCookie('user-username')
+        }
+    })
+    eBayRequest('GetMyeBayBuying', {sendSessionID: false, extraXML: `
+        <UserDefinedLists>
+            <Include>true</Include>
+            <IncludeItemCount>true</IncludeItemCount>
+            <IncludeListContents>true</IncludeListContents>
+        </UserDefinedLists>`}).then(r => {
+            let data = xmlToJson(r.data)
+            watchedIds = data.GetMyeBayBuyingResponse.UserDefinedList.ItemArray.Item.map(e => e.ItemID['#text'])
+    }).then(() => {
+        updateWatchList()
+        updateIgnoreList()
+    })
 })
 
 var aucTypeEnum = {
